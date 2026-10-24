@@ -1,4 +1,4 @@
-/** Sayfa altı: marka imzası, ikonlu sosyal medya linkleri, telif notu ve başa dön linki. */
+/** Sayfa altı: marka imzası, ikonlu sosyal medya linkleri ve telif notu. */
 import { socials } from '../../data/content.js'
 
 // İsim + ikon tek link; min 44x44px dokunma alanı, hover'da ikisi birlikte renk değiştirir
@@ -38,12 +38,6 @@ export function Footer() {
 
       <div className="flex flex-col items-start gap-4 text-[12px] leading-[1.5] text-muted md:flex-row md:items-center md:justify-between">
         <p>© 2026 Yâren. Hayali bir marka için hazırlanmış çalışmadır.</p>
-        <a
-          href="#top"
-          className="flex min-h-11 items-center underline underline-offset-2 transition-colors hover:text-brown"
-        >
-          Başa dön ↑
-        </a>
       </div>
     </footer>
   )
