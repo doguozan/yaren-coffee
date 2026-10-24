@@ -23,8 +23,6 @@ export default function App() {
         <Divider />
         <Story />
         <Quote />
-        {/* Desktop'ta Quote'un arka plan görseli bölümleri zaten ayırıyor */}
-        <Divider className="lg:hidden" />
         <Contact />
       </main>
       <Footer />

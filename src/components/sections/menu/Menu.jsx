@@ -23,10 +23,6 @@ export function Menu() {
   return (
     <section id="kahveler" className="px-5 py-20 md:px-10 lg:p-[60px]">
       <ProductSlider products={products} header={<MenuHeader />} />
-
-      <p className="text-[12px] leading-[1.5] text-muted lg:hidden">
-        Fiyatlar örnek amaçlıdır. Kampanya kodu ilk siparişte geçerlidir.
-      </p>
     </section>
   )
 }
