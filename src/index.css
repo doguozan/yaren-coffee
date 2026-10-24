@@ -1,0 +1,91 @@
+@import 'tailwindcss';
+
+/* ---------------------------------------------------------------
+   Design tokens — Figma variables (color/*) ve text style'ları
+   birebir buraya taşındı. Tailwind v4 bunları otomatik olarak
+   bg-cream, text-brown, font-serif gibi sınıflara çevirir.
+---------------------------------------------------------------- */
+@theme {
+  --color-cream: #f7f3ec;
+  --color-cream-2: #e9e2d5;
+  --color-line: #e3dacb;
+  --color-line-strong: #d8cdbb;
+  --color-olive: #5e6b3a;
+  --color-brown: #2b1a12;
+  --color-brown-text: #4a3828;
+  --color-muted: #6b5848;
+  --color-placeholder: #8a7764;
+  --color-white: #ffffff;
+
+  --font-serif: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-sans: 'DM Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+  }
+
+  body {
+    @apply bg-cream font-sans text-brown antialiased;
+    font-variation-settings: 'opsz' 14;
+  }
+
+  /* Fraunces: Figma'daki "SOFT 0, WONK 1" ayarı */
+  .font-serif {
+    font-variation-settings:
+      'SOFT' 0,
+      'WONK' 1;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-olive);
+    outline-offset: 3px;
+  }
+}
+
+@layer components {
+  /* Label/Eyebrow */
+  .eyebrow {
+    @apply font-sans text-[12px] leading-none font-medium tracking-[0.2em] text-olive uppercase;
+  }
+
+  /* Heading/H2 (mobil 36 → tablet 40 → desktop 44): tablette ara boyut, ani sıçrama olmasın */
+  .h2 {
+    @apply font-serif text-[36px] leading-[1.12] tracking-[-0.01em] text-brown md:text-[40px] lg:text-[44px];
+  }
+
+  /* Ürün slider'ının sayfa noktaları. Swiper'ın mavi varsayılanları yerine marka renkleri;
+     swiper/css/pagination bilerek import edilmedi, tüm görünüm burada. */
+  .product-slider-pagination {
+    @apply flex items-center justify-center gap-2;
+  }
+
+  .product-slider-pagination .swiper-pagination-bullet {
+    @apply block h-2 w-2 rounded-full bg-line-strong transition-all duration-300;
+  }
+
+  /* Aktif nokta hem renk hem genişlikle ayrışıyor; renk körlüğünde de fark edilsin */
+  .product-slider-pagination .swiper-pagination-bullet-active {
+    @apply w-6 bg-olive;
+  }
+}
+
+/* İletişim teşekkür modalının açılışı: hafif yukarı kayarak belirir */
+@keyframes modal-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
